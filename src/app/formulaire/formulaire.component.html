@@ -1,0 +1,19 @@
+<form>
+  <h3>Add a link</h3>
+  <div style="margin: 10px 0">
+    <label for="title">Title:</label>
+    <input name="title" #newTitle />
+  </div>
+  <div style="margin: 10px 0">
+    <label for="link">Link:</label>
+    <input name="link" #newLink />
+  </div>
+  <button (click)="addArticle(newTitle, newLink)">Submit link</button>
+</form>
+
+<app-article
+  *ngFor="let article of sortedArticles()"
+  [article]="article"
+  (articleToDelete)="deleteArticle($event)"
+>
+</app-article>
