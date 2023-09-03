@@ -2,11 +2,11 @@
   <h3>Add a link</h3>
   <div style="margin: 10px 0">
     <label for="title">Title:</label>
-    <input name="title" #newTitle />
+    <input name="title" type="text" #newTitle />
   </div>
   <div style="margin: 10px 0">
     <label for="link">Link:</label>
-    <input name="link" #newLink />
+    <input name="link" type="text" #newLink />
   </div>
   <button (click)="addArticle(newTitle, newLink)">Submit link</button>
 </form>
@@ -15,5 +15,7 @@
   *ngFor="let article of sortedArticles()"
   [article]="article"
   (articleToDelete)="deleteArticle($event)"
+  (articleToUpdate)="updateArticle($event)"
 >
+  <!-- (articleSelected)="selectArticle($event)" -->
 </app-article>

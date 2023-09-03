@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Article } from './article.model';
-import { HttpserviceService } from '../httpservice.service';
 
 @Component({
   selector: 'app-article',
@@ -11,8 +10,10 @@ export class ArticleComponent {
   @Input()
   article: Article;
 
+  updateOn: boolean = false;
+
   @Output()
-  articleSelected = new EventEmitter<Article>();
+  articleToUpdate = new EventEmitter<Article>();
 
   @Output()
   articleToDelete = new EventEmitter<number>();
@@ -26,12 +27,23 @@ export class ArticleComponent {
   }
 
   voteUp(): boolean {
-    this.article.voteUp();
+    this.article.votes++;
     return false;
   }
 
   voteDown(): boolean {
-    this.article.voteDown();
+    this.article.votes--;
+    return false;
+  }
+
+  updateArticle(
+    article: Article,
+    updatedTitle: HTMLInputElement,
+    updatedLink: HTMLInputElement
+  ) {
+    article.title = updatedTitle.value;
+    article.link = updatedLink.value;
+    this.articleToUpdate.emit(article);
     return false;
   }
 }

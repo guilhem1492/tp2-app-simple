@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../article/article.model';
-import { ArticleService } from '../article.service';
+//import { ArticleService } from '../article.service';
 import { HttpserviceService } from '../httpservice.service';
 
 @Component({
@@ -23,25 +23,18 @@ export class FormulaireComponent implements OnInit {
     console.log(`Adding article title: ${title.value} and link: ${link.value}`);
     this.service
       .addArticle(new Article(title.value, link.value))
-      .subscribe((data) => {
-        this.getArticles();
-      });
+      .subscribe((data) => this.getArticles());
     location.reload();
     return false;
   }
 
-  updateArticle(title: HTMLInputElement, link: HTMLInputElement) {
-    const a = new Article('hello', 'how', 1);
-    a.id = 1;
-    this.service.updateArticle(a).subscribe((data) => {
-      this.getArticles();
-    });
+  updateArticle(article: Article) {
+    this.service.updateArticle(article).subscribe((data) => this.getArticles());
+    return false;
   }
 
   deleteArticle(id: number) {
-    this.service.deleteArticle(id).subscribe((data) => {
-      this.getArticles();
-    });
+    this.service.deleteArticle(id).subscribe((data) => this.getArticles());
   }
 
   getArticles() {

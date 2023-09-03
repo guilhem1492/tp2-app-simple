@@ -8,9 +8,15 @@
     },
     {
       "id": 3,
-      "title": "Blog",
+      "title": "Mon blog",
       "link": "https://carnetsdumont-blanc.blogspot.com/",
       "votes": 5
+    },
+    {
+      "id": 4,
+      "title": "Angular doc",
+      "link": "https://angular.io/guide/inputs-outputs",
+      "votes": 0
     }
   ],
   "comments": [

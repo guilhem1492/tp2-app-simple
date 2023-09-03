@@ -1,12 +1,4 @@
-<section
-  style="
-    border: 1px solid black;
-    width: 150px;
-    text-align: center;
-    padding: 5px;
-    margin-top: 1rem;
-  "
->
+<section>
   <div>
     <a href="{{ article.link }}" target="_blank">{{ article.title }}</a>
   </div>
@@ -16,6 +8,21 @@
   <button (click)="voteUp()">+</button>
   <button (click)="voteDown()">-</button>
   <br />
-  <button (click)="articleSelected.emit(article)">Update</button>
+  <button (click)="updateOn = !updateOn">Update</button>
   <button (click)="deleteArticle(article)">Delete</button>
+
+  <form *ngIf="updateOn">
+    <h3>Update this link</h3>
+    <div style="margin: 10px 0">
+      <label for="updatedtitle">Title:</label>
+      <input name="updatedTitle" type="text" #updatedTitle />
+    </div>
+    <div style="margin: 10px 0">
+      <label for="updatedlink">Link:</label>
+      <input name="updatedlink" type="text" #updatedLink />
+    </div>
+    <button (click)="updateArticle(article, updatedTitle, updatedLink)">
+      Submit link
+    </button>
+  </form>
 </section>
