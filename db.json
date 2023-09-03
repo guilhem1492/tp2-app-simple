@@ -3,7 +3,7 @@
     {
       "title": "GitHub",
       "link": "https://github.com/",
-      "votes": 10,
+      "votes": 7,
       "id": 1
     },
     {
@@ -16,7 +16,7 @@
       "id": 4,
       "title": "Angular doc",
       "link": "https://angular.io/guide/inputs-outputs",
-      "votes": 0
+      "votes": 3
     }
   ],
   "comments": [

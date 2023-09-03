@@ -5,8 +5,8 @@
 
   <div>{{ article.votes }} votes</div>
 
-  <button (click)="voteUp()">+</button>
-  <button (click)="voteDown()">-</button>
+  <button (click)="voteUp(article)">+</button>
+  <button (click)="voteDown(article)">-</button>
   <br />
   <button (click)="updateOn = !updateOn">Update</button>
   <button (click)="deleteArticle(article)">Delete</button>

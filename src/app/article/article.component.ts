@@ -26,13 +26,15 @@ export class ArticleComponent {
     this.articleToDelete.emit(article.id);
   }
 
-  voteUp(): boolean {
+  voteUp(article: Article): boolean {
     this.article.votes++;
+    this.articleToUpdate.emit(article);
     return false;
   }
 
-  voteDown(): boolean {
+  voteDown(article: Article): boolean {
     this.article.votes--;
+    this.articleToUpdate.emit(article);
     return false;
   }
 
