@@ -43,8 +43,8 @@ export class ArticleComponent {
     updatedTitle: HTMLInputElement,
     updatedLink: HTMLInputElement
   ) {
-    article.title = updatedTitle.value;
-    article.link = updatedLink.value;
+    this.article.title = updatedTitle.value;
+    this.article.link = updatedLink.value;
     this.articleToUpdate.emit(article);
     return false;
   }

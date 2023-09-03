@@ -14,12 +14,12 @@
   <form *ngIf="updateOn">
     <h3>Update this link</h3>
     <div style="margin: 10px 0">
-      <label for="updatedtitle">Title:</label>
-      <input name="updatedTitle" type="text" #updatedTitle />
+      <label for="updatedTitle">Title:</label>
+      <input name="updatedTitle" id="updatedTitle" type="text" #updatedTitle />
     </div>
     <div style="margin: 10px 0">
-      <label for="updatedlink">Link:</label>
-      <input name="updatedlink" type="text" #updatedLink />
+      <label for="updatedLink">Link:</label>
+      <input name="updatedLink" id="updatedLink" type="text" #updatedLink />
     </div>
     <button (click)="updateArticle(article, updatedTitle, updatedLink)">
       Submit link
