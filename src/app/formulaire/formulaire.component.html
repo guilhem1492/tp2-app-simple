@@ -1,14 +1,32 @@
-<form>
+<form
+  [formGroup]="formArticle"
+  (ngSubmit)="postReactiveFormArticle(formArticle)"
+>
   <h3>Add a link</h3>
   <div style="margin: 10px 0">
     <label for="title">Title:</label>
-    <input name="title" id="title" type="text" #newTitle />
+    <input
+      formControlName="title"
+      required
+      name="title"
+      id="title"
+      type="text"
+      #newTitle
+    />
   </div>
   <div style="margin: 10px 0">
     <label for="link">Link:</label>
-    <input name="link" id="link" type="text" #newLink />
+    <input
+      formControlName="link"
+      required
+      name="link"
+      id="link"
+      type="text"
+      #newLink
+    />
   </div>
-  <button (click)="addArticle(newTitle, newLink)">Submit link</button>
+  <button type="submit">Submit link</button>
+  <!-- <button (click)="addArticle(newTitle, newLink)">Submit link</button> -->
 </form>
 
 <app-article

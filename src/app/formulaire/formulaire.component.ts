@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from '../article/article.model';
 //import { ArticleService } from '../article.service';
 import { HttpserviceService } from '../httpservice.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulaire',
@@ -11,7 +12,18 @@ import { HttpserviceService } from '../httpservice.service';
 export class FormulaireComponent implements OnInit {
   articles: Article[] = [];
 
-  constructor(private service: HttpserviceService) {}
+  formArticle = this.fb.group({
+    title: ['', Validators.required],
+    link: ['', Validators.required],
+  });
+
+  postReactiveFormArticle(formArticle: FormGroup) {
+    const article: Article = formArticle.value;
+    article.votes = 0;
+    this.service.addArticle(article).subscribe((res) => this.ngOnInit());
+  }
+
+  constructor(private service: HttpserviceService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.service
